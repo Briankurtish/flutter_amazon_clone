@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'constants/global_variables.dart';
 import 'features/auth/screens/auth_screen.dart';
 import 'features/auth/services/auth_service.dart';
+import 'features/home/screens/home_screen.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -31,6 +32,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    authService.getUserData(context: context);
   }
 
   // This widget is the root of your application.
@@ -50,7 +52,9 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: const AuthScreen(),
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? const HomeScreen()
+          : const AuthScreen(),
     );
   }
 }
