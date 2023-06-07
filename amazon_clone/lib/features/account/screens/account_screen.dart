@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/global_variables.dart';
 import '../widgets/below_app_bar.dart';
+import '../widgets/top_buttons.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -53,6 +54,9 @@ class _AccountScreenState extends State<AccountScreen> {
       body: Column(
         children: const [
           BelowAppBar(),
+          SizedBox(height: 10),
+          TopButtons(),
+          SizedBox(height: 20),
         ],
       ),
     );
