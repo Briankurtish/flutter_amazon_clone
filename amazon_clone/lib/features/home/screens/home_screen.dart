@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../constants/global_variables.dart';
 import '../widgets/address_box.dart';
 import '../widgets/carousel_image.dart';
+import '../widgets/deal_of_day.dart';
 import '../widgets/top_categories.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -90,14 +91,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: const [
-          AddressBox(),
-          SizedBox(height: 10),
-          TopCategories(),
-          SizedBox(height: 10),
-          CarouselImage(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: const [
+            AddressBox(),
+            SizedBox(height: 10),
+            TopCategories(),
+            SizedBox(height: 10),
+            CarouselImage(),
+            DealOfDay(),
+          ],
+        ),
       ),
     );
   }
