@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants/global_variables.dart';
+import '../widgets/address_box.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(65),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -90,8 +91,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Center(
-        child: Text(user.toJson()),
+      body: Column(
+        children: [
+          const AddressBox(),
+          const SizedBox(height: 10),
+        ],
       ),
     );
   }
